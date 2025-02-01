@@ -15,6 +15,7 @@ import (
 	"github.com/nanovms/ops/provider/linode"
 	"github.com/nanovms/ops/provider/oci"
 	"github.com/nanovms/ops/provider/onprem"
+	"github.com/nanovms/ops/provider/opennebula"
 	"github.com/nanovms/ops/provider/openshift"
 	"github.com/nanovms/ops/provider/openstack"
 	"github.com/nanovms/ops/provider/proxmox"
@@ -56,6 +57,9 @@ func CloudProvider(providerName string, c *types.ProviderConfig) (lepton.Provide
 
 	case onprem.ProviderName:
 		p = onprem.NewProvider()
+
+	case opennebula.ProviderName:
+		p = opennebula.NewProvider()
 
 	case openshift.ProviderName:
 		p = openshift.NewProvider()
