@@ -23,7 +23,7 @@ jobs:
           fi
 
       - name: Close PR
-        if: steps.check_msg.outputs.match == 'true'
+        if: (steps.check_msg.outputs.match == 'true' || contains(github.event.pull_request.body, '🤖'))
         uses: peter-evans/close-pull@v3
         with:
           token: ${{ secrets.AUTO_CLOSE }}
